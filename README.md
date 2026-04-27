@@ -1,48 +1,61 @@
-🌐 Biswajit Projects
-📖 Overview
-এই রিপোজিটরিতে আমার সব ওয়েব ডেভেলপমেন্ট প্রজেক্ট একসাথে রাখা হয়েছে।
-GitHub Pages এর মাধ্যমে লাইভ ডেমো দেখা যাবে।
+# 🌐 Biswajit Projects
 
-🔗 Live Site: Biswajit Projects
+## 📖 Overview
 
-🚀 Project Collection
-Project Name Description Live Demo
-Password Generator Secure password তৈরি করার টুল View Project (bidhyut-bapary.github.io in Bing)
-Loan Management System Savings ও Loan ট্র্যাকিং সিস্টেম Coming Soon
-Electrical Work Electrical project showcase Coming Soon
-CV Builder Resume/CV তৈরি করার টুল Coming Soon
-Billing System Simple billing application Coming Soon
-Portfolio Website Personal portfolio showcase Coming Soon
-Photo Restoration Ultra‑realistic photo restore Coming Soon
-Grocery Billing App Grocery shop billing system Coming Soon
+This repository contains all of my web development projects in one place.  
+All projects are deployed using GitHub Pages and can be accessed live.
 
-📱 Features
-Responsive design (Desktop, Tablet, Mobile)
+🔗 **Live Site:** https://bidhyut-bapary.github.io/web_development_projects/
 
-Modern UI/UX (Gradients, Animations, Glassmorphism)
+---
 
-Pagination system for projects
+## 🚀 Project Collection
 
-Contact info & social media integration
+| Project Name           | Description                     | Live Demo      |
+| ---------------------- | ------------------------------- | -------------- |
+| Password Generator     | Secure password generating tool | 🔗 Live        |
+| Loan Management System | Savings & Loan tracking system  | ⏳ Coming Soon |
+| Electrical Work        | Electrical project showcase     | ⏳ Coming Soon |
+| CV Builder             | Resume/CV generator tool        | ⏳ Coming Soon |
+| Billing System         | Simple billing application      | ⏳ Coming Soon |
+| Portfolio Website      | Personal portfolio showcase     | ⏳ Coming Soon |
+| Photo Restoration      | Ultra-realistic photo restore   | ⏳ Coming Soon |
+| Grocery Billing App    | Grocery shop billing system     | ⏳ Coming Soon |
 
-Google Maps embed for location
+---
 
-📬 Contact
-Phone: 📞 +8801788568379
+## 📱 Features
 
-Email: 📧 jit28935@gmail.com
+- ✅ Fully Responsive (Desktop, Tablet, Mobile)
+- 🎨 Modern UI/UX (Gradient, Glassmorphism, Animation)
+- 📂 Organized Project System
+- 📞 Contact & Social Integration
+- 🗺️ Google Maps Location
 
-🌐 Social Links
-Facebook
+---
 
-Instagram
+## 📬 Contact
 
-Twitter
+- 📞 Phone: +8801788568379
+- 📧 Email: jit28935@gmail.com
 
-LinkedIn
+---
 
-📍 Location
+## 🌐 Social Links
+
+- Facebook
+- Instagram
+- Twitter
+- LinkedIn
+
+---
+
+## 📍 Location
+
 Barisal, Bangladesh
 
-❤️ Credits
+---
+
+## ❤️ Credits
+
 © 2026 Biswajit | Designed with ❤️
