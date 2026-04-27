@@ -5,7 +5,7 @@
 This repository contains all of my web development projects in one place.  
 All projects are deployed using GitHub Pages and can be accessed live.
 
-🔗 **Live Site:** https://bidhyut-bapary.github.io/web_development_projects/
+🔗 **Live Site:** [https://bidhyut-bapary.github.io/web_development_projects/]
 
 ---
 
