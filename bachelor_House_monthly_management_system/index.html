@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bachelor House Meal Manager</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+    <script src="/_sdk/element_sdk.js"></script>
+    <script src="/_sdk/data_sdk.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+</head>
+
+<body>
+
+
+
+    <!--মেনু বার-->
+    <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+    <!--সাইড বার-->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    <div class="app-wrapper">
+        <aside class="sidebar" id="sidebar">
+            <div class="logo-section">
+                <div class="logo-title">
+                    <div class="logo-icon" id="logo-icon">
+                        🏠
+                    </div><span id="app-name">Bachelor House</span>
+                </div>
+            </div>
+
+            <nav class="nav-menu">
+                <div class="nav-item active" data-page="dashboard"><span class="nav-icon">📊</span>
+                    <span>Dashboard</span>
+                </div>
+                <div class="nav-item" data-page="members"><span class="nav-icon">👥</span> <span>Members</span>
+                </div>
+                <div class="nav-item" data-page="bills"><span class="nav-icon">💰</span> <span>Bills</span>
+                </div>
+                <div class="nav-item" data-page="payments"><span class="nav-icon">💳</span> <span>Payments</span>
+                </div>
+                <div class="nav-item" data-page="meals"><span class="nav-icon">🍽️</span> <span>Daily Meals</span>
+                </div>
+                <div class="nav-item" data-page="settlement"><span class="nav-icon">📝</span> <span>Settlement</span>
+                </div>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="month-controls"><button class="month-btn" id="prev-month">◀</button>
+                    <div class="month-display" id="current-month">
+                        February 2024
+                    </div><button class="month-btn" id="next-month">▶</button>
+                </div>
+                <div class="search-bar"><span class="search-icon">🔍</span> <input type="text" class="search-input"
+                        id="global-search" placeholder="Search members, bills...">
+                </div>
+                <div class="user-profile">
+                    <img src="images/Logo.png" alt="Bachelor House Logo" width="500" height="600">
+                </div>
+            </header>
+            <div class="content-area"><!-- Dashboard Page -->
+                <div id="dashboard-page" class="page active">
+                    <div class="page-header">
+                        <h1 class="page-title" id="dashboard-title">Dashboard Overview</h1>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <label for="dashboard-month-filter" style="font-weight: 600; color: #4A5568;">Filter by
+                                Month:
+                            </label>
+                            <input type="month" id="dashboard-month-filter" class="form-control"
+                                style="width: auto; padding: 10px 16px;">
+                            <button class="btn btn-outline" id="clear-filter-btn">Clear Filter
+                            </button>
+                        </div>
+                    </div>
+                    <div class="summary-cards">
+                        <div class="summary-card">
+                            <div class="card-label">
+                                Total Monthly Expense
+                            </div>
+                            <div class="card-value primary" id="total-expense">
+                                ৳0
+                            </div>
+                        </div>
+                        <div class="summary-card">
+                            <div class="card-label">
+                                Total Deposits
+                            </div>
+                            <div class="card-value success" id="total-deposits">
+                                ৳0
+                            </div>
+                        </div>
+                        <div class="summary-card">
+                            <div class="card-label">
+                                Total Due
+                            </div>
+                            <div class="card-value danger" id="total-due">
+                                ৳0
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Members Overview</h2><button class="btn btn-primary"
+                                id="add-member-dashboard">+ Add Member</button>
+                        </div>
+                        <div id="members-table-container"></div>
+                    </div>
+                </div><!-- Members Page -->
+                <div id="members-page" class="page">
+                    <div class="page-header">
+                        <h1 class="page-title" id="members-title">House Members</h1><button class="btn btn-primary"
+                            id="add-member-btn">+ Add Member</button>
+                    </div>
+                    <div id="members-list-container"></div>
+                </div><!-- Bills Page -->
+                <div id="bills-page" class="page">
+                    <div class="page-header">
+                        <h1 class="page-title" id="bills-title">Monthly Bills</h1><button class="btn btn-primary"
+                            id="add-bill-btn-header">+ Add Bill</button>
+                    </div>
+                    <div id="bills-container"></div><button class="floating-btn" id="add-bill-fab">+</button>
+                </div><!-- Payments Page -->
+                <div id="payments-page" class="page">
+                    <div class="page-header">
+                        <h1 class="page-title" id="payments-title">Payment History</h1><button class="btn btn-primary"
+                            id="add-payment-btn-header">+ Add Payment</button>
+                    </div>
+                    <div id="payments-container"></div><button class="floating-btn" id="add-payment-fab">+</button>
+                </div><!-- Daily Meals Page -->
+                <div id="meals-page" class="page">
+                    <div class="page-header">
+                        <h1 class="page-title">Daily Meals Tracking</h1>
+                        <div style="display: flex; align-items: center; gap: 12px;"><label for="meal-date-picker"
+                                style="font-weight: 600; color: #4A5568;">Select Date:</label> <input type="date"
+                                id="meal-date-picker" class="form-control" style="width: auto; padding: 10px 16px;">
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title" id="meals-card-title">Update Daily Meals</h2>
+                        </div>
+                        <div id="meals-grid-container"></div>
+                    </div>
+                </div><!-- Settlement Page -->
+                <div id="settlement-page" class="page">
+                    <div class="page-header">
+                        <h1 class="page-title" id="settlement-title">Month-End Settlement</h1><button
+                            class="btn btn-success" id="generate-report-btn">📄 Generate PDF Report</button>
+                    </div>
+                    <div class="summary-cards">
+                        <div class="summary-card">
+                            <div class="card-label">
+                                Total Cost
+                            </div>
+                            <div class="card-value primary" id="settlement-total-expense">
+                                ৳0
+                            </div>
+                        </div>
+                        <div class="summary-card">
+                            <div class="card-label">
+                                Total Paid
+                            </div>
+                            <div class="card-value success" id="settlement-total-deposits">
+                                ৳0
+                            </div>
+                        </div>
+                        <div class="summary-card">
+                            <div class="card-label">
+                                Total Due
+                            </div>
+                            <div class="card-value danger" id="settlement-total-due">
+                                ৳0
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Settlement Summary</h2>
+                        </div>
+                        <div id="settlement-container"></div>
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <p>&copy 2025 Bachelor House Meal Manager. All rights reserved.</p>
+                <p class="footer-credit">Created by <span> <a href="https://web.facebook.com/biswajit68379">BiswaJit</a>
+                    </span></p>
+            </footer>
+        </main>
+    </div><!-- Add Member Modal -->
+    <div class="modal" id="add-member-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Add New Member</h2><button class="close-btn" id="close-member-modal">✕</button>
+            </div>
+            <form id="add-member-form">
+                <div class="form-group"><label for="member-name" class="form-label">Member Name *</label> <input
+                        type="text" id="member-name" class="form-control" placeholder="Enter member name" required>
+                </div>
+                <div class="form-group"><label for="member-phone" class="form-label">Mobile Number *</label> <input
+                        type="tel" id="member-phone" class="form-control" placeholder="01XXXXXXXXX" required>
+                </div>
+                <div class="form-group"><label for="join-date" class="form-label">Join Date *</label> <input type="date"
+                        id="join-date" class="form-control" required>
+                </div>
+                <div class="modal-actions"><button type="button" class="btn btn-outline btn-block"
+                        id="cancel-member-btn">Cancel</button> <button type="submit" class="btn btn-success btn-block"
+                        id="save-member-btn"> <span id="save-member-text">✓ Add Member</span> </button>
+                </div>
+            </form>
+        </div>
+    </div><!-- Add Bill Modal -->
+    <div class="modal" id="add-bill-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Add New Bill</h2><button class="close-btn" id="close-bill-modal">✕</button>
+            </div>
+            <form id="add-bill-form">
+                <div class="form-group"><label for="bill-title" class="form-label">Bill Title *</label> <input
+                        type="text" id="bill-title" class="form-control" placeholder="e.g., Market, Electricity"
+                        required>
+                </div>
+                <div class="form-group"><label for="bill-type" class="form-label">Bill Type *</label> <select
+                        id="bill-type" class="form-control" required>
+                        <option value="">Select type...</option>
+                        <option value="market">Market/Food</option>
+                        <option value="electricity">Electricity</option>
+                        <option value="gas">Gas</option>
+                        <option value="internet">Internet</option>
+                        <option value="rent">House Rent</option>
+                        <option value="garbage">Garbage</option>
+                        <option value="fridge">Fridge</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group"><label for="bill-amount" class="form-label">Amount (৳) *</label> <input
+                        type="number" id="bill-amount" class="form-control" placeholder="0" min="0" required>
+                </div>
+                <div class="form-group"><label for="bill-date" class="form-label">Date *</label> <input type="date"
+                        id="bill-date" class="form-control" required>
+                </div>
+                <div class="form-group"><label for="split-type" class="form-label">Split Type *</label> <select
+                        id="split-type" class="form-control" required>
+                        <option value="equal">Equal Split</option>
+                        <option value="custom">Custom Split</option>
+                        <option value="weight">Weight-based</option>
+                    </select>
+                </div>
+                <div class="modal-actions"><button type="button" class="btn btn-outline btn-block"
+                        id="cancel-bill-btn">Cancel</button> <button type="submit" class="btn btn-success btn-block"
+                        id="save-bill-btn"> <span id="save-bill-text">✓ Add Bill</span> </button>
+                </div>
+            </form>
+        </div>
+    </div><!-- Add Payment Modal -->
+    <div class="modal" id="add-payment-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Add Payment</h2><button class="close-btn" id="close-payment-modal">✕</button>
+            </div>
+            <form id="add-payment-form">
+                <div class="form-group"><label for="payment-member" class="form-label">Select Member *</label> <select
+                        id="payment-member" class="form-control" required>
+                        <option value="">Choose a member...</option>
+                    </select>
+                </div>
+                <div class="form-group"><label for="payment-amount" class="form-label">Amount (৳) *</label> <input
+                        type="number" id="payment-amount" class="form-control" placeholder="0" min="0" required>
+                </div>
+                <div class="form-group"><label for="payment-date" class="form-label">Date *</label> <input type="date"
+                        id="payment-date" class="form-control" required>
+                </div>
+                <div class="form-group"><label for="payment-method" class="form-label">Payment Method</label> <select
+                        id="payment-method" class="form-control">
+                        <option value="cash">Cash</option>
+                        <option value="bkash">Bkash</option>
+                        <option value="bank">Bank Transfer</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group"><label for="payment-note" class="form-label">Note (Optional)</label> <input
+                        type="text" id="payment-note" class="form-control" placeholder="Add a note">
+                </div>
+                <div class="modal-actions"><button type="button" class="btn btn-outline btn-block"
+                        id="cancel-payment-btn">Cancel</button> <button type="submit" class="btn btn-success btn-block"
+                        id="save-payment-btn"> <span id="save-payment-text">✓ Add Payment</span> </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="toast" id="toast"><span id="toast-message"></span>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
