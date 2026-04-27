@@ -16,7 +16,11 @@ const projects = [
     link: "password-generator/index.html",
   },
   { title: "Loan Management System", desc: "coming soon", link: "#" },
-  { title: "Electrical Work", desc: "coming soon", link: "#" },
+  {
+    title: "Bachelor House Monthly Management System",
+    desc: "Available Now",
+    link: "bachelor_House_monthly_management_system/index.html",
+  },
   { title: "CV Builder", desc: "coming soon", link: "#" },
   { title: "Billing System", desc: "coming soon", link: "#" },
   {
