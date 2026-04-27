@@ -1,0 +1,176 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Body Theme */
+body.light {
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    color: #222;
+}
+
+body.dark {
+    background: linear-gradient(135deg, #141e30, #243b55);
+    color: #fff;
+}
+
+/* Center Layout */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container */
+.container,
+#authContainer {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    border-radius: 15px;
+    width: 320px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark mode fix */
+body.dark .container,
+body.dark #authContainer {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+/* Heading */
+h1,
+h2 {
+    margin-bottom: 15px;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+
+/* Password Field */
+#password {
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Buttons */
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    border: none;
+    border-radius: 8px;
+    background: #4facfe;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #00c6ff;
+    transform: scale(1.03);
+}
+
+/* Toggle Button */
+#toggleTheme {
+    background: #ffb347;
+}
+
+#toggleTheme:hover {
+    background: #ffcc70;
+}
+
+/* Controls */
+.controls {
+    margin-top: 10px;
+    text-align: left;
+}
+
+.controls label {
+    display: block;
+    margin: 8px 0;
+    font-size: 0.9rem;
+
+}
+
+
+/* Range Slider */
+input[type="range"] {
+    width: 100%;
+}
+
+/* Options (checkbox) */
+.options {
+    margin-top: 10px;
+}
+
+.options label {
+    display: block;
+    font-size: 14px;
+    margin: 3px 0;
+}
+
+/* Strength Text */
+#strength {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Auth Message */
+#authMessage {
+    margin-top: 10px;
+    font-size: 13px;
+    color: red;
+}
+
+/* Logout Button */
+button[onclick="logout()"] {
+    background: #ff4d4d;
+}
+
+button[onclick="logout()"]:hover {
+    background: #ff1a1a;
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+
+    .container,
+    #authContainer {
+        width: 90%;
+    }
+}
+
+
+
+/* মোবাইল ভিউ (max-width: 600px) */
+@media only screen and (max-width: 600px) {
+    body {
+        font-size: 14px;
+        margin: 10px;
+    }
+
+    .container {
+        width: 400px;
+        height: auto;
+
+    }
+
+
+}
