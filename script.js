@@ -10,28 +10,72 @@ window.addEventListener("load", () => {
 });
 
 const projects = [
+  // Password Generator
   {
     title: "Password Generator",
     desc: "Secure password tool",
     link: "password-generator/index.html",
   },
-  { title: "Loan Management System", desc: "coming soon", link: "#" },
+  // Loan Management System
+  {
+    title: "Loan Management System",
+    desc: "coming soon",
+    link: "#",
+  },
+  // Responsive Calculator
+  {
+    title: "Responsive Calculator",
+    desc: "Available Now",
+    link: "responsive-calculator/index.html",
+  },
+  // Bachelor House Monthly Management System
   {
     title: "Bachelor House Monthly Management System",
     desc: "Available Now",
     link: "bachelor_House_monthly_management_system/index.html",
   },
-  { title: "CV Builder", desc: "coming soon", link: "#" },
-  { title: "Billing System", desc: "coming soon", link: "#" },
+  // CV Builder
+  {
+    title: "CV Builder",
+    desc: "coming soon",
+    link: "#",
+  },
+  // Billing System
+  {
+    title: "Billing System",
+    desc: "coming soon",
+    link: "#",
+  },
+  // Portfolio Website
   {
     title: "Portfolio Website",
     desc: "Available Now",
     link: "https://bidhyut-bapary.github.io/my_portfolio_website/",
   },
-  { title: "Photo Restoration", desc: "coming soon", link: "#" },
-  { title: "Grocery Billing App", desc: "coming soon", link: "#" },
-  { title: "Dark/Light Mode UI", desc: "coming soon", link: "#" },
-  { title: "Git Workflow Tool", desc: "coming soon", link: "#" },
+  // Photo Restoration
+  {
+    title: "Photo Restoration",
+    desc: "coming soon",
+    link: "#",
+  },
+  // Grocery Billing App
+  {
+    title: "Grocery Billing App",
+    desc: "coming soon",
+    link: "#",
+  },
+  // Dark/Light Mode UI
+  {
+    title: "Dark/Light Mode UI",
+    desc: "coming soon",
+    link: "#",
+  },
+  // Git Workflow Tool
+  {
+    title: "Git Workflow Tool",
+    desc: "coming soon",
+    link: "#",
+  },
 ];
 
 let perPage = 8;
